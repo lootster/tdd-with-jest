@@ -5,7 +5,13 @@
 // e.g. sumWithoutHighestAndLowest([1, 1, 11, 2, 3]) => 5
 
 const sumWithoutHighestAndLowest = array => {
-	// your code here
+	
+	let sortArray = array.sort( (a, b) => a - b);
+	let uniqueArray = sortArray.filter( (element, index) => {
+		return sortArray.indexOf(element) == index;
+	});
+	let newArray = uniqueArray.slice(1, -1);
+	return newArray.reduce( (a, b) => a + b);
 };
 
 module.exports = sumWithoutHighestAndLowest;
